@@ -1,4 +1,4 @@
-package com.example.validation_utils.utils;
+package com.don.example.validation.origin;
 //package com.alibaba.banff.web.util;
 
 import java.util.HashMap;
@@ -9,6 +9,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.groups.Default;
+import javax.xml.crypto.Data;
 
 /**
  * 校验工具类
@@ -21,7 +22,7 @@ public class ValidationUtils {
 
     public static <T> ValidationResult validateEntity(T obj) {
         ValidationResult result = new ValidationResult();
-        Set<ConstraintViolation<T>> set = validator.validate(obj, Default.class);
+        Set<ConstraintViolation<T>> set = validator.validate(obj, Data.class);
         // if( CollectionUtils.isNotEmpty(set) ){
         if (set != null && set.size() != 0) {
             result.setHasErrors(true);
